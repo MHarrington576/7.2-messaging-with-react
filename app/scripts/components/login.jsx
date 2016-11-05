@@ -51,7 +51,7 @@ var LoginComponent = React.createClass({
     return (
       <TemplateComponent>
         <LoginForm router={this.props.router} />
-// ***** NOT SURE WHAT THIS IS DOING ***** //
+// Sets the target router to the master AppRouter
         <Directions />
       </TemplateComponent>
     )

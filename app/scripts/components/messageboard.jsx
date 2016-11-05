@@ -1,13 +1,10 @@
 var React = require('react');
 var Backbone = require('backbone');
-require('backbone-react-component');
 
 var MessageCollection = require('../models/models').MessageCollection;
 var TemplateCollection = require('./template.jsx').TemplateComponent;
 
 var MessageForm = React.createClass({
-  mixins: [Backbone.React.Component.mixin],
-
   getInitialState: function(){
     return {
       message: ''
@@ -36,8 +33,6 @@ var MessageForm = React.createClass({
 });
 
 var MessageBoard = React.createClass({
-  mixins: [Backbone.React.Component.mixin],
-
   render: function(){
     var collection = this.getCollection();
     var listOfMessages = collection.map(function(message){
@@ -53,8 +48,6 @@ var MessageBoard = React.createClass({
 });
 
 var MessageComponent = React.createClass({
-  mixins: [Backbone.React.Component.mixin],
-
   render: function(){
     return (
       <TemplateComponent>

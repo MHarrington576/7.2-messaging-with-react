@@ -22,6 +22,7 @@ var AppRouter = Backbone.Router.extend({
   index: function(){
     ReactDOM.render(
       React.createElement(LoginComponent, {router: this}),
+// Assigns router to this to be passed down via props
       document.getElementById('app')
     );
   },
