@@ -1,1 +1,1 @@
-## 7.2-messaging-with-react
+# 7.2 Messaging with React
