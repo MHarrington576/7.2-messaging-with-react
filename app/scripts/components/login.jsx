@@ -1,4 +1,7 @@
+var Backbone = require('backbone');
 var React = require('react');
+
+var TemplateComponent = require('./template.jsx').TemplateComponent;
 
 function Directions(){
   return <span>Please log in to join the TIY-GVL-FEE message board!</span>
@@ -7,7 +10,7 @@ function Directions(){
 
 var LoginForm = React.createClass({
 // Defines how LoginForm looks and behaves below
-  getInitialState: function(e){
+  getInitialState: function(){
     return {
       username: ''
     };
@@ -35,11 +38,9 @@ var LoginForm = React.createClass({
   render: function(){
     return (
 // Defines what is to be rendered to the DOM
-      <form onSubmit={this.handleSubmit}>
-// When submitted, run the handleSubmit method
-        <input onChange={this.handleUsername} name="username" value={this.state.username} placeholder="Username" />
-// When the input in this field changes, run the handleSubmit method
-// and set the state of the username to the user's input
+      <form className="login-form" onSubmit={this.handleSubmit}>
+        <input onChange={this.handleUsername} type="text" name="username" value={this.state.username} placeholder="Username" />
+        <br />
         <button type="submit" className="btn btn-success">Log in!</button>
       </form>
     )
@@ -50,9 +51,8 @@ var LoginComponent = React.createClass({
   render: function(){
     return (
       <TemplateComponent>
-        <LoginForm router={this.props.router} />
-// Sets the target router to the master AppRouter
         <Directions />
+        <LoginForm router={this.props.router} />
       </TemplateComponent>
     )
   }

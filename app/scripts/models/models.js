@@ -14,12 +14,13 @@ var MessageCollection = Backbone.Collection.extend({
 // Creates collection of messages to make up messageboard
   model: Message,
 // Collection will be filled with Message models
-  url: 'https://tiny-lasagna-server.herokuapp.com/collections/mdhmessages',
+  url: 'https://tiny-lasagna-server.herokuapp.com/collections/mdhmessages'
+  // ,
 // Server endpoint for message data collection and subsequent fetching
-  comparator: function(model){
-    console.log(model.timestamp);
-    return model.timestamp;
-  }
+  // comparator: function(model){
+  //   console.log(model.timestamp);
+  //   return model.timestamp;
+  // }
 // Compares timestamp data across all stored messages and returns
 // the messages organized by those timestamps
 });

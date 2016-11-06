@@ -29,13 +29,14 @@ var AppRouter = Backbone.Router.extend({
 // Renders index to the DOM in '#app' by rendering JS/XML log-in screen
 
   messages: function(){
-    var collection = new MessageCollection();
-    collection.fetch();
+                            // var collection = new MessageCollection();
+                            // collection.fetch();
+
 // Instantiates the MessageCollection in the code and fetches for it
 // new data from the server
 
     ReactDOM.render(
-      React.createElement(MessageBoardComponent, {collection: collection, username: this.username}),
+      React.createElement(MessageComponent, {username: this.username}),
       document.getElementById('app')
     );
   }
