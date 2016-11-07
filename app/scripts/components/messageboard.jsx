@@ -26,7 +26,7 @@ var MessageForm = React.createClass({
       username: this.props.username
     };
 
-    this.getCollection().create(timeStamp);
+    this.props.collection.create(timeStamp);
     this.setState({message: ''});
   },
 
@@ -41,13 +41,29 @@ var MessageForm = React.createClass({
 });
 
 var MessageBoard = React.createClass({
+  getInitialState: function(){
+    return(
+      this.state = {
+        messages: []
+      }
+    )
+  },
+  componentWillMount: function() {
+    this._fetchMessages();
+  },
+
+  _fetchMessages(){
+    this.props.collection.fetch().then(function(messages){
+      this.setState({messages})
+    }.bind(this));
+  },
+
   render: function(){
-    var collection = this.getCollection();
-    var listOfMessages = collection.map(function(messages){
-      return <li key={message.get('_id') || message.cid}>
-        {messages.get('username')}
-        {messages.get('message')}
-        {messages.get('time')}
+    var listOfMessages = this.state.messages.map(function(message){
+      return <li key={message._id || message.cid}>
+        {message.username}
+        {message.content}
+        {message.time}
       </li>;
     });
 
@@ -78,8 +94,8 @@ var MessageComponent = React.createClass({
   render: function(){
     return (
       <TemplateComponent>
-        <MessageBoard />
-        <MessageForm username={this.props.username} />
+        <MessageBoard collection={this.props.collection} />
+        <MessageForm username={this.props.username} collection={this.props.collection} />
       </TemplateComponent>
     )
   }

@@ -29,10 +29,11 @@ var LoginForm = React.createClass({
 
     router.username = this.state.username
 // Maintains the user's input as username through navigation
-    router.navigate('messages/', {trigger: true});
-// Navigates the user to the 'messages/' fragment from the log-in screen
     this.setState({username: ''});
 // Resets username input field to an empty string
+    router.navigate('messages/', {trigger: true});
+// Navigates the user to the 'messages/' fragment from the log-in screen
+
   },
 
   render: function(){
