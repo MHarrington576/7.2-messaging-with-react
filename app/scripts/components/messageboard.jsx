@@ -61,8 +61,11 @@ var MessageBoard = React.createClass({
   render: function(){
     var listOfMessages = this.state.messages.map(function(message){
       return <li key={message._id || message.cid}>
-        {message.username}
-        {message.content}
+        <u>{message.username || 'Anonymous'}</u>
+        <br />
+        <span> {message.content} </span>
+        <br />
+        <span> Milliseconds since 1970 upon submit: </span>
         {message.time}
       </li>;
     });
@@ -105,4 +108,4 @@ module.exports = {
   MessageForm: MessageForm,
   MessageBoard: MessageBoard,
   MessageComponent: MessageComponent
-}
+};
