@@ -19,4 +19,4 @@ var TemplateComponent = React.createClass({
 
 module.exports = {
   TemplateComponent: TemplateComponent
-}
+};
